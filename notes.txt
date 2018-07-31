@@ -1,0 +1,59 @@
+MongoDb 
+
+Is a NoSQL database with JSON storage architecture
+Client (browser) => communicates with the server (node) which 
+uses mongoose to communicate with MongoDb
+
+//command to start mongoDB it must be run with cmder from the data folder in the root of the computer.
+"C:\Program Files\MongoDB\Server\4.0\bin\mongod.exe" --dbpath="c:\data\db"
+
+After this it tells you the port in the end
+
+collections and records: 
+
+you can have multiple databases with different models each. Each model contains a collection of data 
+conformed by records. They are stored as JSON objects. The architecture of each record is 
+known as schema
+
+find (criteria) returns all the records it matches.
+fineOne('criteria) returns the first record it finds
+
+both are used directly on the models, unlike save() that can be used in the instance of a model
+
+example:
+myChar = new MarioChar({name: 'Mario'});
+myChar.save();
+
+MarioChar.find({name: 'Mario'});
+
+deleting records heheh
+ex: 
+char.remove();
+MarioChar.remove();
+MarioChar.findOneAndRemove();
+
+updating records
+
+mongoose methods: 
+
+char.update();
+MarioChar.update();
+MarioChar.findOneAndUpdate();
+
+Update Operators
+ go to mongoDB Update operators 
+
+Relational database
+
+with mongo db this can be done as a collection of records withing the same model. 
+No need to separate data in two different databases;
+
+{
+      name: 'Patrick',
+      age: 38,
+      books: [
+            {title: 'Name of the wind', pages: 400}
+            {title: 'Tigers of the snow', pages: 500}
+      ]
+}
+
